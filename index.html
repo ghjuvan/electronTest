@@ -1,13 +1,18 @@
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
     <meta charset="UTF-8">
     <title>Hello World!</title>
-  </head>
-  <body>
-    <h1>Hello World!</h1>
-    We are using node <script>document.write(process.versions.node)</script>,
-    Chrome <script>document.write(process.versions.chrome)</script>,
-    and Electron <script>document.write(process.versions.electron)</script>.
-  </body>
+    <script src="./node_modules/angular/angular.js"></script>
+    <script src="./node_modules/angular-resource/angular-resource.js"></script>
+    <script src="./node_modules/angular-route/angular-route.js"></script>
+</head>
+<body ng-app>
+<h1>Hello World!</h1>
+
+<input type="text" ng-model="yourName" placeholder="Enter a name here">
+
+<h1>Hello {{yourName}}!</h1>
+
+</body>
 </html>
