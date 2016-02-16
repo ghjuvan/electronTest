@@ -4,7 +4,6 @@
   "description": "A minimal Electron application",
   "main": "main.js",
   "scripts": {
-    "live": "lite-server",
     "start": "electron main.js"
   },
   "repository": {
@@ -24,13 +23,8 @@
   },
   "homepage": "https://github.com/atom/electron-quick-start#readme",
   "devDependencies": {
+    "electron-connect": "^0.3.7",
     "electron-prebuilt": "^0.36.0",
-    "concurrently": "^1.0.0",
-    "lite-server": "^2.0.1"
-  },
-  "dependencies": {
-    "angular": "^1.5.0",
-    "angular-resource": "^1.5.0",
-    "angular-route": "^1.5.0"
+    "gulp": "^3.9.1"
   }
 }

@@ -3,16 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <title>Hello World!</title>
-    <script src="./node_modules/angular/angular.js"></script>
-    <script src="./node_modules/angular-resource/angular-resource.js"></script>
-    <script src="./node_modules/angular-route/angular-route.js"></script>
+    <script src="./bower_components/angular/angular.js"></script>
+    <script src="./bower_components/angular-resource/angular-resource.js"></script>
+    <script src="./bower_components/angular-route/angular-route.js"></script>
+
+    <script src="app/test.js"></script>
 </head>
 <body ng-app>
+
+<!-- build:remove -->
+<!-- Connect to server process -->
+<script>require('electron-connect').client.create()</script>
+<!-- end:build -->
+
 <h1>Hello World!</h1>
 
 <input type="text" ng-model="yourName" placeholder="Enter a name here">
 
 <h1>Hello {{yourName}}!</h1>
+
+<h1>Hello World!</h1>
+We are using node <script>document.write(process.versions.node)</script>,
+Chrome <script>document.write(process.versions.chrome)</script>,
+and Electron <script>document.write(process.versions.electron)</script>
+
 
 </body>
 </html>

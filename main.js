@@ -6,6 +6,9 @@ const app = electron.app;
 // Module to create native browser window.
 const BrowserWindow = electron.BrowserWindow;
 
+const dialog = require('electron').dialog;
+
+
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
 let mainWindow;
@@ -15,10 +18,7 @@ function createWindow() {
     mainWindow = new BrowserWindow(
         {
             width: 800,
-            height: 600,
-            webPreferences: {
-                nodeIntegration: false
-            }
+            height: 600
         }
     );
 
@@ -56,4 +56,12 @@ app.on('activate', function () {
     if (mainWindow === null) {
         createWindow();
     }
+});
+
+const ipcMain = require('electron').ipcMain;
+
+ipcMain.on('openDialog', function(event, arg) {
+    console.log(arg);
+    console.log(dialog.showOpenDialog({ properties: [ 'openFile', 'openDirectory', 'multiSelections' ]}));
+    event.sender.send('asynchronous-reply', 'pong');
 });
