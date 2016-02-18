@@ -26,5 +26,8 @@
     "electron-connect": "^0.3.7",
     "electron-prebuilt": "^0.36.0",
     "gulp": "^3.9.1"
+  },
+  "dependencies": {
+    "firebase": "^2.4.1"
   }
 }

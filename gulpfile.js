@@ -1,7 +1,7 @@
 'use strict';
 
 var gulp = require('gulp');
-var electron = require('electron-connect').server.create();
+var electron = require('electron-connect').server.create({path:'app/main.js'});
 
 gulp.task('serve', function () {
 
@@ -9,8 +9,8 @@ gulp.task('serve', function () {
     electron.start();
 
     // Restart browser process
-    gulp.watch('main.js', electron.restart);
+    gulp.watch(['app/windows/**.js', 'app/main.js'], electron.restart);
 
     // Reload renderer process
-    gulp.watch(['**/**.js', '**/**.html'], electron.reload);
+    gulp.watch(['app/front/**.js', 'app/windows/**/**.html'], electron.reload);
 });
