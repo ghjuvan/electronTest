@@ -23,8 +23,11 @@
   },
   "homepage": "https://github.com/atom/electron-quick-start#readme",
   "devDependencies": {
+    "electron-connect": "^0.3.7",
     "electron-prebuilt": "^0.36.0",
-    "concurrently": "^1.0.0",
-    "lite-server": "^2.0.1"
+    "gulp": "^3.9.1"
+  },
+  "dependencies": {
+    "firebase": "^2.4.1"
   }
 }

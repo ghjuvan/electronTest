@@ -1,0 +1,31 @@
+{
+  "name": "electron-quick-start",
+  "description": "A minimal Electron application",
+  "main": "main.js",
+  "authors": [
+    "Ghjuvan"
+  ],
+  "license": "CC0-1.0",
+  "keywords": [
+    "Electron",
+    "quick",
+    "start",
+    "tutorial"
+  ],
+  "homepage": "https://github.com/ghjuvan/electronTest",
+  "moduleType": [
+    "node"
+  ],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.5.0",
+    "angular-route": "^1.5.0",
+    "angular-resource": "^1.5.0"
+  }
+}
