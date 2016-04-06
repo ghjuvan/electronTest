@@ -1,36 +1,24 @@
 "use strict";
 
-const ipcRenderer = require('electron').ipcRenderer;
-
+const remote = require('electron').remote;
+const dialog = remote.dialog;
 
 
 angular
-    .module('main', ["firebase"])
+    .module('main', ['firebase'])
     .controller('loginController', function ($scope, $firebaseArray) {
-        console.log('test');
-        var ref = new Firebase("https://electronjs.firebaseio.com/rooms");
+
+        var ref = new Firebase('https://electronjs.firebaseio.com/rooms');
 
         $scope.rooms = $firebaseArray(ref);
         $scope.newRoom = '';
 
 
         $scope.createRoom = function (name) {
-            console.log('rooms');
-            $scope.rooms.$add({name: name})
-        };
-
-        /*$scope.addMessage = function(message) {
-            $scope.messages.$add({
-                text: message
+            $scope.rooms.$add({name: name}).then(function () {
+                dialog.showMessageBox({ message: `La room ${name} a bien été créée`, buttons: [`CIMER ALBERT`] });
             });
-
-            $scope.newMessage = "";
         };
-        $scope.dialogMessage = '';
 
-
-        $scope.testDialog = function () {
-            ipcRenderer.send('openDialog', $scope.dialogMessage);
-        }*/
 
     });

@@ -3,13 +3,13 @@
 const ipcRenderer = require('electron').ipcRenderer;
 
 angular
-    .module('login', ["firebase"])
+    .module('login', ['firebase'])
     .controller('loginController', function ($scope) {
-        var ref = new Firebase("https://electronjs.firebaseio.com");
+        var ref = new Firebase('https://electronjs.firebaseio.com');
 
         $scope.user = {
-            email: '',
-            password: ''
+            email: 'sebastien@net-consult.info',
+            password: 'fedekta'
         };
 
         $scope.wait = false;
@@ -34,7 +34,6 @@ angular
                                 provider: authData.provider,
                                 mail: authData.password.email
                             }, function () {
-                                console.log(authData);
                                 ipcRenderer.send('closeLogin', authData);
                             });
                     }

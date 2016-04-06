@@ -29,8 +29,7 @@ ipcMain.on('errorLogin', function(event, arg) {
 });
 
 ipcMain.on('openDialog', function(event, arg) {
-    dialog.showMessageBox({ message: arg,
-        buttons: ["OK"] });
+    dialog.showMessageBox({ message: arg, buttons: ["OK"] });
 });
 
 app.on('window-all-closed', function () {

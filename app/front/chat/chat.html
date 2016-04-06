@@ -17,25 +17,27 @@
 <!-- Connect to server process -->
 <script>require('electron-connect').client.create()</script>
 <!-- end:build -->
-
 <div ng-controller="loginController">
-    <h3>room list</h3>
-    <ul>
-        <li ng-repeat="room in rooms">
-            <a href="" ng-click="displayRoom(room.$id)">{{room.name}}</a>
-        </li>
-    </ul>
-    <form name="roomForm">
-        <label for="roomId">Create new room</label>
-        <input type="text" name="roomId" ng-model="newRoom" id="roomId" required>
-        <button class="btn btn-xs btn-warning"
-                ng-click="createRoom(newRoom)"
-                ng-disabled="roomForm.$invalid">create room</button>
-    </form>
+    <div >
+        <h3>room list</h3>
+        <ul>
+            <li ng-repeat="room in rooms">
+                <a href="" ng-click="displayRoom(room.$id)">{{room.name}}</a>
+            </li>
+        </ul>
+        <form name="roomForm">
+            <label for="roomId">Create new room</label>
+            <input type="text" name="roomId" ng-model="newRoom" id="roomId" required>
+            <button class="btn btn-xs btn-warning"
+                    ng-click="createRoom(newRoom)"
+                    ng-disabled="roomForm.$invalid">create room</button>
+        </form>
+    </div>
+
+    <hr/>
+
+    <button class="btn btn-info" ng-click="testRemote()">remote</button>
 </div>
-
-<hr/>
-
 
 
 
