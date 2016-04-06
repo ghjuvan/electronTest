@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Hello World!</title>
+    <script src="../../../../bower_components/angular/angular.js"></script>
+    <script src="../../../../bower_components/firebase/firebase.js"></script>
+    <script src="../../../../bower_components/angularfire/dist/angularfire.min.js"></script>
+
+    <script src="chat.js"></script>
+
+    <link rel="stylesheet" href="../../../../bower_components/bootstrap/dist/css/bootstrap.min.css">
+</head>
+<body ng-app="main">
+
+<!-- build:remove -->
+<!-- Connect to server process -->
+<script>require('electron-connect').client.create()</script>
+<!-- end:build -->
+
+<div ng-controller="loginController">
+    <h3>room list</h3>
+    <ul>
+        <li ng-repeat="room in rooms">
+            <a href="" ng-click="displayRoom(room.$id)">{{room.name}}</a>
+        </li>
+    </ul>
+    <form name="roomForm">
+        <label for="roomId">Create new room</label>
+        <input type="text" name="roomId" ng-model="newRoom" id="roomId" required>
+        <button class="btn btn-xs btn-warning"
+                ng-click="createRoom(newRoom)"
+                ng-disabled="roomForm.$invalid">create room</button>
+    </form>
+</div>
+
+<hr/>
+
+
+
+
+</body>
+</html>

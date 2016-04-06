@@ -2,8 +2,11 @@
 
 const electron = require('electron');
 const BrowserWindow = electron.BrowserWindow;
+const fs = require("fs");
 
-exports.createWindow = function(cookie) {
+exports.createWindow = function(dirName, authData) {
+
+    fs.writeFile('./app/local/credential.json', JSON.stringify(authData));
 
     var mainWindow = new BrowserWindow({
         width: 800,
@@ -12,7 +15,7 @@ exports.createWindow = function(cookie) {
 
 
     mainWindow.webContents.openDevTools();
-    mainWindow.loadURL('file://' + __dirname + '/template/index.html');
+    mainWindow.loadURL(dirName + '/chat/chat.html');
 
     mainWindow.isAlwaysOnTop(true);
     mainWindow.center();
