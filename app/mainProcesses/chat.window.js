@@ -10,7 +10,8 @@ exports.createWindow = function(dirName, authData) {
 
     var mainWindow = new BrowserWindow({
         width: 800,
-        height: 600
+        height: 600,
+        icon: dirName + '/img/garage56.png'
     });
 
 

@@ -28,6 +28,6 @@
     "gulp": "^3.9.1"
   },
   "dependencies": {
-    "firebase": "^2.4.1"
+    "node-notifier": "^4.5.0"
   }
 }

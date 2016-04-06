@@ -19,22 +19,26 @@
     <div ng-if="!wait">
         <h1>login</h1>
         <form name="loginForm">
-            <div class="form-group">
-                <label for="email">Email</label>
-                <input type="email" ng-model="user.email"
-                       name="email" id="email"
-                       class="form-control"
-                       required>
-            </div>
-            <div class="form-group">
-                <label for="password">Password</label>
-                <input type="password" ng-model="user.password"
-                       id="password" name="password"
-                       class="form-control"
-                       required>
-            </div>
+            <fieldset>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" ng-model="user.email"
+                           name="email" id="email"
+                           class="form-control"
+                           required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" ng-model="user.password"
+                           id="password" name="password"
+                           class="form-control"
+                           required>
+                </div>
 
-            <button ng-disabled="loginForm.$invalid" type="submit" class="btn btn-danger" ng-click="connect(user)">connect</button>
+                <button ng-disabled="loginForm.$invalid" type="submit" class="btn btn-danger" ng-click="connect(user)">
+                    connect
+                </button>
+            </fieldset>
         </form>
     </div>
     <div ng-if="wait">

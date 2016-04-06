@@ -8,7 +8,7 @@ angular
         var ref = new Firebase('https://electronjs.firebaseio.com');
 
         $scope.user = {
-            email: '',
+            email: 'sebastien@net-consult.info',
             password: ''
         };
 
