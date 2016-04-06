@@ -27,5 +27,9 @@
     "angular": "^1.5.0",
     "angular-route": "^1.5.0",
     "angular-resource": "^1.5.0"
+  },
+  "devDependencies": {
+    "firebase": "^2.4.2",
+    "angularfire": "^1.2.0"
   }
 }

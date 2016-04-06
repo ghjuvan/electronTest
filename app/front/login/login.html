@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <script src="../../../../bower_components/angular/angular.js"></script>
+    <script src="../../../../bower_components/firebase/firebase.js"></script>
+    <script src="../../../../bower_components/angularfire/dist/angularfire.min.js"></script>
+
+    <script src="login.js"></script>
+
+    <link rel="stylesheet" href="../../../../bower_components/bootstrap/dist/css/bootstrap.min.css">
+
+
+</head>
+<body ng-app="login">
+
+<div class="container-fluid" ng-controller="loginController">
+    <div ng-if="!wait">
+        <h1>login</h1>
+        <form name="loginForm">
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" ng-model="user.email"
+                       name="email" id="email"
+                       class="form-control"
+                       required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" ng-model="user.password"
+                       id="password" name="password"
+                       class="form-control"
+                       required>
+            </div>
+
+            <button ng-disabled="loginForm.$invalid" type="submit" class="btn btn-danger" ng-click="connect(user)">connect</button>
+        </form>
+    </div>
+    <div ng-if="wait">
+        <img src="../img/spinner.gif" alt="spinner">
+    </div>
+</div>
+</body>
+</html>

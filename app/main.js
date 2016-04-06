@@ -5,21 +5,28 @@ const app = electron.app;
 const ipcMain = require('electron').ipcMain;
 const dialog = require('electron').dialog;
 
-const loginWindow = require('./windows/login.window.js');
-const mainWindow = require('./windows/main.window.js');
+const loginWindow = require('./mainProcesses/login.window.js');
+const mainWindow = require('./mainProcesses/chat.window.js');
+
+const angularDir = 'file://' + __dirname + '/front/';
 
 
 app.on('ready', function(){
 
-    var login = loginWindow.createWindow();
+    var login = loginWindow.createWindow(angularDir);
 
-    ipcMain.on('closeLogin', function(event, arg) {
+    ipcMain.on('closeLogin', function(e, authData) {
         login.close();
-        var main = mainWindow.createWindow(arg);
+        mainWindow.createWindow(angularDir, authData);
     });
 
 });
 
+
+ipcMain.on('errorLogin', function(event, arg) {
+    console.log(arg);
+    dialog.showErrorBox(arg.title, arg.message);
+});
 
 ipcMain.on('openDialog', function(event, arg) {
     dialog.showMessageBox({ message: arg,
@@ -37,4 +44,3 @@ app.on('activate', function () {
         createWindow();
     }
 });
-
