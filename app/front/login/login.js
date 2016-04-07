@@ -8,8 +8,8 @@ angular
         var ref = new Firebase('https://electronjs.firebaseio.com');
 
         $scope.user = {
-            email: 'sebastien@net-consult.info',
-            password: ''
+            email: 'test@test.com',
+            password: 'test'
         };
 
         $scope.wait = false;

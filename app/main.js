@@ -4,7 +4,12 @@ const electron = require('electron');
 const app = electron.app;
 const ipcMain = require('electron').ipcMain;
 const dialog = require('electron').dialog;
+
 const Menu = require("menu");
+const MenuItem = require('menu-item');
+const Tray = require('tray');
+
+const BrowserWindow = require('browser-window');
 const templateMenu = require('./mainProcesses/menus');
 const loginWindow = require('./mainProcesses/login.window');
 const mainWindow = require('./mainProcesses/chat.window');
@@ -13,6 +18,27 @@ const angularDir = 'file://' + __dirname + '/front/';
 
 
 app.on('ready', function(){
+
+    var appIcon = new Tray(__dirname + '/favicon/favicon.png');
+
+    var trayContextMenu = new Menu();
+
+    trayContextMenu.append(new MenuItem({ label: 'Toggle Developer Tool', click: function() {
+        var targetWindow = BrowserWindow.getAllWindows()[0];
+        targetWindow.toggleDevTools(); }
+    }));
+    trayContextMenu.append(new MenuItem({ label: 'Reload',
+        click: function() {
+            var targetWindow = BrowserWindow.getAllWindows()[0];
+            targetWindow.reload(); }
+    }));
+    trayContextMenu.append(new MenuItem({ label: 'Quit',
+        click: function() { app.quit();
+        } }));
+
+    appIcon.setToolTip('Garage 56 Chat');
+    appIcon.setContextMenu(trayContextMenu);
+
 
     var login = loginWindow.createWindow(angularDir);
 

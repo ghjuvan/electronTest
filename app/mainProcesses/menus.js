@@ -9,9 +9,11 @@ exports.menu =
         label: "Application",
         submenu: [
             {label: "About Application", selector: "orderFrontStandardAboutPanel:"},
-            {label: "Toggle Dev Tools", click: function () {
+            {
+                label: "Toggle Dev Tools", click: function () {
                 BrowserWindow.getFocusedWindow().toggleDevTools();
-            }},
+            }
+            },
             {type: "separator"},
             {
                 label: "Quit", accelerator: "Command+Q", click: function () {
