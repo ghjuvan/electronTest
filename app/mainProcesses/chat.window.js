@@ -13,9 +13,7 @@ exports.createWindow = function(dirName, authData) {
         height: 600,
         icon: dirName + '/img/garage56.png'
     });
-
-
-    mainWindow.webContents.openDevTools();
+    
     mainWindow.loadURL(dirName + '/chat/chat.html');
 
     mainWindow.isAlwaysOnTop(true);
