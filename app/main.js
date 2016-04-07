@@ -4,9 +4,10 @@ const electron = require('electron');
 const app = electron.app;
 const ipcMain = require('electron').ipcMain;
 const dialog = require('electron').dialog;
-
-const loginWindow = require('./mainProcesses/login.window.js');
-const mainWindow = require('./mainProcesses/chat.window.js');
+const Menu = require("menu");
+const templateMenu = require('./mainProcesses/menus');
+const loginWindow = require('./mainProcesses/login.window');
+const mainWindow = require('./mainProcesses/chat.window');
 
 const angularDir = 'file://' + __dirname + '/front/';
 
@@ -19,6 +20,8 @@ app.on('ready', function(){
         login.close();
         mainWindow.createWindow(angularDir, authData);
     });
+
+    Menu.setApplicationMenu(Menu.buildFromTemplate(templateMenu.menu));
 
 });
 

@@ -6,21 +6,19 @@ const BrowserWindow = electron.BrowserWindow;
 
 exports.createWindow = function(dirName) {
 
-    var insertWindow = new BrowserWindow({
+    var loginWindow = new BrowserWindow({
         width: 500,
         height: 500
     });
 
+    loginWindow.loadURL(dirName + '/login/login.html');
 
-    insertWindow.webContents.openDevTools();
-    insertWindow.loadURL(dirName + '/login/login.html');
+    loginWindow.isAlwaysOnTop(true);
+    loginWindow.center();
 
-    insertWindow.isAlwaysOnTop(true);
-    insertWindow.center();
-
-    insertWindow.on('closed',function() {
-        insertWindow = null;
+    loginWindow.on('closed',function() {
+        loginWindow = null;
     });
 
-    return insertWindow;
+    return loginWindow;
 };
